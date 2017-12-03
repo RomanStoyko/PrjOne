@@ -37,13 +37,13 @@ public class Controller {
 
             Target target = getTargetById();
 
-            int persent = 0;
+            int percent = 0;
             int month = 0;
             int loan = 0;
 
             if (!shortInput) {
 
-                persent = InputUtility.inputIntValue(
+                percent = InputUtility.inputIntValue(
                         view,
                         String.format(Localization.INSTANCE.getString(PERCENT_INPUT), PERCENT_CONDITION),
                         WRONG_INPUT_DATA,
@@ -65,7 +65,7 @@ public class Controller {
             boolean prepay = getBoolean(Localization.INSTANCE.getString(PREPAY_INPUT)+ "\n" + Localization.INSTANCE.getString(YES_NO_QUESTION));
             boolean raise = getBoolean(Localization.INSTANCE.getString(RAISE_INPUT)+ "\n" + Localization.INSTANCE.getString(YES_NO_QUESTION));
 
-            Credit searchCredit = new Credit.CreditBuilder(target,persent,month,loan).prepay(prepay).raise(raise).build();
+            Credit searchCredit = new Credit.CreditBuilder(target,percent,month,loan).prepay(prepay).raise(raise).build();
 
             ArrayList<Credit> fitCreditList = new ArrayList<Credit>();
             for (Credit credit: Credits.INSTANCE.getCreditList()) {
